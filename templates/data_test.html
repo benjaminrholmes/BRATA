@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+
+
+{% block main %}
+<html lang="en">
+
+<body>
+
+<div class="w3-container w3-white">
+
+    <pre>
+        <code class="language-python">
+    import pymysql
+    import sqlalchemy
+
+    hostname = "localhost"
+    dbname = "******"
+    uname = "root"
+    pwd = "******"
+
+    pd_engine = sqlalchemy.create_engine("mysql+pymysql://{user}:{password}@{host}/{db}".format(user=uname,
+                                                                                        password=pwd,
+                                                                                        host=hostname,
+                                                                                        db=dbname))
+
+    def fetch_mysql(sql_query):
+        cursor = local_connection.cursor()
+        cursor.execute(sql_query)
+        result_sql = cursor.fetchall()
+        return result_sql
+
+    iris_data = fetch_mysql("SELECT * FROM iris")
+        </code>
+    </pre>
+<div class="row">
+<div class="column">
+<div id='chart1' class="plotly-graph-div js-plotly-plot" style="height: 500px"></div>
+</div>
+<div class="column">
+<div class= "inner-content">
+<table id="iris_tbl" class="display compact" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>Sepal Length</th>
+                        <th>Sepal Width</th>
+                        <th>Petal Length</th>
+                        <th>Petal Width</th>
+                        <th>Species</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for data in iris_data %}
+                      <tr id="row">
+                      <td>{{data[0]}}</td>
+                      <td>{{data[1]}}</td>
+                      <td>{{data[2]}}</td>
+                      <td>{{data[3]}}</td>
+                      <td>{{data[4]}}</td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+        var config = {responsive: true};
+
+        var iris_scatter = {{iris_scatter | safe}};
+        Plotly.plot('chart1', iris_scatter, config, {});
+
+
+</script>
+
+</body>
+</html>
+
+{% endblock %}

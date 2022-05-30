@@ -3,23 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>BRATA - Data science & integration consultancy</title>
+
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="../static/datatables.js"></script>
+
     <link rel="stylesheet" type="text/css" href="../static/general.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </head>
 
 <div class="header">
-            <a href="/" class="logo"><img src="../static/images/BRATA.png" width="550px" height="auto"></a>
+            <a href="/" class="logo"><img src="../static/images/BRATA.png" width="550px" height="auto" style="padding-left: 10px; padding-top: 5px"></a>
 </div>
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
+  <a href="/about">About</a>
+  <a href="/data">Projects</a>
+  <a href="/football">Football</a>
   <a href="#">Contact</a>
 </div>
 
 <!-- Use any element to open the sidenav -->
-<div id="test">
+<div id="burger_container">
 <div class="burger" onclick="openNav()">
     <div class="line"></div>
     <div class="line"></div>
@@ -38,13 +52,15 @@
 <script>
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("main").style.marginRight = "250px";
 }
 
-/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
+  document.getElementById("main").style.marginRight = "0";
 }
+
+
 
 </script>
